@@ -87,7 +87,7 @@ const App = () => {
       <Route path='/'>
         <PizzaNav />
       </Route>
-      <h1>Lambda Eats</h1>
+    
       <Route exact path='/'>
         <Home />
       </Route>
