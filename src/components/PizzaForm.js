@@ -25,7 +25,9 @@ export default function PizzaForm(props) {
                 type="email" 
                 name="email" 
                 id="email" 
-                placeholder="enter your e-mail" 
+                placeholder="enter your e-mail"
+                onChange={onChange}
+                value={values.email} 
             />
         </FormGroup>
         <FormGroup>
@@ -34,7 +36,9 @@ export default function PizzaForm(props) {
                 type="password" 
                 name="password" 
                 id="password" 
-                placeholder="enter your password" 
+                placeholder="enter your password"
+                onChange={onChange}
+                value={values.password} 
             />
         </FormGroup>
         <FormGroup>
@@ -50,51 +54,66 @@ export default function PizzaForm(props) {
         </FormGroup>
         <FormGroup>
             <Label for="size">Select</Label>
-            <Input type="select" name="size" id="size">
-            <option>Small</option>
-            <option>Medium</option>
-            <option>Large</option>
-            <option>Extra Large</option>
+            <Input 
+                type="select" 
+                name="size" 
+                id="size"
+                onChange={onChange}
+                value={values.size}
+            >
+            <option value='Small'>Small</option>
+            <option value='Medium'>Medium</option>
+            <option value='Large'>Large</option>
+            <option value='Extra Large'>Extra Large</option>
             </Input>
         </FormGroup>
         <FormGroup check>
             <Label check>
             <Input 
-                type="checkbox" 
+                type="checkbox"
+                name="extraCheese"
+                checked={values.extraCheese} 
+                onChange={onChange}
             />{' '}
             Extra Cheese
             </Label>
             <Label check>
                 <Input
                     type="checkbox"
-                    name='hiking'
-                    // checked={values.hiking}
-                    // onChange={onChange}
+                    name='pepperoni'
+                    checked={values.pepperoni}
+                    onChange={onChange}
                 />{' '} 
             Pepperoni
             </Label>
             <Label check>
                 <Input
                     type="checkbox"
-                    name="reading"
-                    // checked={values.reading}
-                    // onChange={onChange}
+                    name="mushrooms"
+                    checked={values.mushrooms}
+                    onChange={onChange}
                 />{' '} 
             Mushrooms
             </Label>
             <Label check>
                 <Input
                     type="checkbox"
-                    name="coding"
-                    // checked={values.coding}
-                    // onChange={onChange}
+                    name="onions"
+                    checked={values.onions}
+                    onChange={onChange}
                 />{' '} 
             Onions
             </Label>
         </FormGroup>
         <FormGroup>
-            <Label for="specialRequest">Special Requests?</Label>
-            <Input type="textarea" name="specialRequest" id="specialRequest" />
+            <Label for="specialRequests">Special Requests?</Label>
+            <Input 
+                type="textarea" 
+                name="specialRequests" 
+                id="specialRequests" 
+                onChange={onChange}
+                value={values.specialRequests}
+            />
         </FormGroup>
             <FormText color="muted">
             Thanks for choosing us! We hope you enjoy your experience and to see you again!

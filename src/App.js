@@ -5,7 +5,15 @@ import PizzaForm from './components/PizzaForm'
 import { Route } from 'react-router-dom';
 
 const initialPizzaFormValues = {
+  email: '',
+  password: '',
   telNum: '',
+  size: '',
+  extraCheese: false,
+  pepperoni: false,
+  mushrooms: false,
+  onions: false,
+  specialRequests: '',
 }
 
 const initialOrders = []
@@ -21,7 +29,12 @@ const App = () => {
 
   const submitForm = () => {
     const newOrder = {
+      email: formValues.email.trim(),
+      password: formValues.password.trim(), 
       telNum: formValues.telNum.trim(),
+      size: formValues.size,
+      toppings: [ 'extraCheese', 'pepperoni', 'mushrooms', 'onions'].filter(top => formValues[top]),
+      specialRequests: formValues.specialRequests.trim(),
     }
     setOrders([ ...orders, newOrder])
     setFormValues(initialPizzaFormValues)
