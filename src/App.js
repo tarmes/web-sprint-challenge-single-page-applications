@@ -3,6 +3,7 @@ import PizzaNav from './components/Nav'
 import Home from './components/Home'
 import PizzaForm from './components/PizzaForm'
 import { Route } from 'react-router-dom';
+import axios from 'axios'
 
 const initialPizzaFormValues = {
   email: '',
@@ -27,6 +28,18 @@ const App = () => {
     setFormValues({ ...formValues, [name] : value})
   }
 
+  const postNewOrder = newOrder => {
+    axios.post('https://reqres.in/api/users', newOrder)
+      .then(res => {
+        console.log(res)
+        setOrders([ ...orders, newOrder])
+        setFormValues(initialPizzaFormValues)
+      })
+      .catch(err => {
+        debugger
+      })
+  }
+
   const submitForm = () => {
     const newOrder = {
       email: formValues.email.trim(),
@@ -36,8 +49,7 @@ const App = () => {
       toppings: [ 'extraCheese', 'pepperoni', 'mushrooms', 'onions'].filter(top => formValues[top]),
       specialRequests: formValues.specialRequests.trim(),
     }
-    setOrders([ ...orders, newOrder])
-    setFormValues(initialPizzaFormValues)
+    postNewOrder(newOrder)
   }
 
   return (
