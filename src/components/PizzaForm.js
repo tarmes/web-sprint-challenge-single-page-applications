@@ -113,6 +113,7 @@ export default function PizzaForm(props) {
                 id="specialRequests" 
                 onChange={onChange}
                 value={values.specialRequests}
+                className="specialRequests"
             />
         </FormGroup>
             <FormText color="muted">
@@ -124,6 +125,7 @@ export default function PizzaForm(props) {
                 <div>{errors.telNum}</div>
                 <div>{errors.email}</div>
                 <div>{errors.password}</div>
+                <div>{errors.size}</div>
              </div>
         </Form>
     </Container>

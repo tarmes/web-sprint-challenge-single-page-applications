@@ -11,4 +11,11 @@ export default yup.object().shape({
   password: yup.string()
     .required('Password is required')
     .min(5, 'Password must be a minimum of 5 characters'),
+  size: yup.string()
+    .required('You must select a size'),
+  extraCheese: yup.boolean(),
+  pepperoni: yup.boolean(),
+  mushrooms: yup.boolean(),
+  onions: yup.boolean(),
+  specialRequests: yup.string(),
 })

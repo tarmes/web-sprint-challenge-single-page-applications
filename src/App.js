@@ -25,6 +25,7 @@ const initialFormErrors = {
   telNum: '',
   email: '',
   password: '',
+  size: '',
 }
 
 const App = () => {
