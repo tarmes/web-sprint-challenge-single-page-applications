@@ -3,7 +3,7 @@ import { Button, Form, FormGroup, Label, Input, FormText, Container } from 'reac
 
 export default function PizzaForm(props) {
 
-    const { values, changeForm, submit } = props
+    const { values, changeForm, submit, errors } = props
 
     const onChange = evt => {
         const { name, value, type, checked } = evt.target
@@ -120,6 +120,11 @@ export default function PizzaForm(props) {
             </FormText>
 
         <Button>Place your order!</Button>
+        <div className='errors'>
+                <div>{errors.telNum}</div>
+                <div>{errors.email}</div>
+                <div>{errors.password}</div>
+             </div>
         </Form>
     </Container>
   );

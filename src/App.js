@@ -4,6 +4,8 @@ import Home from './components/Home'
 import PizzaForm from './components/PizzaForm'
 import { Route } from 'react-router-dom';
 import axios from 'axios'
+import * as yup from 'yup'
+import schema from './validation/formSchema'
 
 const initialPizzaFormValues = {
   email: '',
@@ -19,12 +21,20 @@ const initialPizzaFormValues = {
 
 const initialOrders = []
 
+const initialFormErrors = {
+  telNum: '',
+  email: '',
+  password: '',
+}
+
 const App = () => {
 
   const [formValues, setFormValues] = useState(initialPizzaFormValues)
   const [orders, setOrders] = useState(initialOrders)
+  const [formErrors, setFormErrors] = useState(initialFormErrors)
 
   const changeForm = (name, value) => {
+    validate(name, value)
     setFormValues({ ...formValues, [name] : value})
   }
 
@@ -52,6 +62,24 @@ const App = () => {
     postNewOrder(newOrder)
   }
 
+  const validate = (name, value) => {
+    yup
+      .reach(schema, name)
+      .validate(value)
+      .then(valid => { // eslint-disable-line
+        setFormErrors({
+          ...formErrors,
+          [name]: ""
+        })
+      })
+      .catch(err => {
+        setFormErrors({
+          ...formErrors,
+          [name]: err.errors[0]
+        });
+      });
+  }
+
   return (
     <>
       
@@ -68,6 +96,7 @@ const App = () => {
           values={formValues}
           changeForm={changeForm}
           submit={submitForm}
+          errors={formErrors}
         />
       </Route>
       
