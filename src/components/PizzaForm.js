@@ -1,10 +1,24 @@
 import React from 'react'
 import { Button, Form, FormGroup, Label, Input, FormText, Container } from 'reactstrap';
 
-export default function PizzaForm() {
+export default function PizzaForm(props) {
+
+    const { values, changeForm, submit } = props
+
+    const onChange = evt => {
+        const { name, value, type, checked } = evt.target
+        const valueToUse = type === 'checkbox' ? checked : value
+        changeForm(name, valueToUse)
+    }
+
+    const onSubmit = evt => {
+        evt.preventDefault()
+        submit()
+    }
+
   return (
     <Container>
-        <Form>
+        <Form onSubmit={onSubmit}>
         <FormGroup>
             <Label for="email">Email</Label>
             <Input 
@@ -26,10 +40,12 @@ export default function PizzaForm() {
         <FormGroup>
             <Label for="telNum">Phone Number</Label>
             <Input 
-                type="email" 
+                type="text" 
                 name="telNum" 
                 id="telNum" 
-                placeholder="enter your phone number" 
+                placeholder="enter your phone number"
+                onChange={onChange}
+                value={values.telNum} 
             />
         </FormGroup>
         <FormGroup>
