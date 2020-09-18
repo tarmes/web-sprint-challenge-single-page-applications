@@ -9,19 +9,22 @@ import {
 
 const items = [
   {
-    src: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
-    altText: 'Slide 1',
-    caption: 'Slide 1'
+    src: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1200&q=80',
+    altText: 'Pizza How You Want It',
+    captionHeader: 'Pizza How You Want It',
+    captionText: 'Leggo'
   },
   {
-    src: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
-    altText: 'Slide 2',
-    caption: 'Slide 2'
+    src: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1200&q=80',
+    altText: "Slice 'em and dice 'em",
+    captionHeader: "Slice 'em and dice 'em",
+    captionText: 'Italian Style'
   },
   {
-    src: 'https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
-    altText: 'Slide 3',
-    caption: 'Slide 3'
+    src: 'https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1200&q=80',
+    altText: 'Does It Get Any Cheesier',
+    captionHeader: 'Does It Get Any Cheesier',
+    captionText: 'Shake and Bake'
   }
 ];
 
@@ -54,7 +57,7 @@ const PizzaCarousel = (props) => {
         key={item.src}
       >
         <img src={item.src} alt={item.altText} />
-        <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
+        <CarouselCaption className="caption-text" captionText={item.captionText} captionHeader={item.captionHeader} />
       </CarouselItem>
     );
   });

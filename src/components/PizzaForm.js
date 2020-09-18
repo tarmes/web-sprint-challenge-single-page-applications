@@ -17,8 +17,9 @@ export default function PizzaForm(props) {
     }
 
   return (
-    <Container>
-        <Form onSubmit={onSubmit}>
+    <Container className='form-container'>
+        <h3>Order here :)</h3>
+        <Form onSubmit={onSubmit} className='form'>
         <FormGroup>
             <Label for="email">Email</Label>
             <Input 
@@ -67,45 +68,54 @@ export default function PizzaForm(props) {
             <option value='Extra Large'>Extra Large</option>
             </Input>
         </FormGroup>
-        <FormGroup check>
-            <Label check>
-            <Input 
-                type="checkbox"
-                name="extraCheese"
-                checked={values.extraCheese} 
-                onChange={onChange}
-            />{' '}
-            Extra Cheese
-            </Label>
-            <Label check>
-                <Input
+        <FormGroup check className="topping-container">
+            <Container className="topping">
+                <Label check>
+                <Input 
                     type="checkbox"
-                    name='pepperoni'
-                    checked={values.pepperoni}
+                    name="extraCheese"
+                    checked={values.extraCheese} 
                     onChange={onChange}
-                />{' '} 
-            Pepperoni
-            </Label>
-            <Label check>
-                <Input
-                    type="checkbox"
-                    name="mushrooms"
-                    checked={values.mushrooms}
-                    onChange={onChange}
-                />{' '} 
-            Mushrooms
-            </Label>
-            <Label check>
-                <Input
-                    type="checkbox"
-                    name="onions"
-                    checked={values.onions}
-                    onChange={onChange}
-                />{' '} 
-            Onions
-            </Label>
+                    className="toppings"
+                />{' '}
+                Extra Cheese
+                </Label>
+            </Container>
+            <Container className="topping">
+                <Label check>
+                    <Input
+                        type="checkbox"
+                        name='pepperoni'
+                        checked={values.pepperoni}
+                        onChange={onChange}
+                    />{' '} 
+                Pepperoni
+                </Label>
+            </Container>
+            <Container className="topping">
+                <Label check>
+                    <Input
+                        type="checkbox"
+                        name="mushrooms"
+                        checked={values.mushrooms}
+                        onChange={onChange}
+                    />{' '} 
+                Mushrooms
+                </Label>
+            </Container>
+            <Container className="topping">
+                <Label check>
+                    <Input
+                        type="checkbox"
+                        name="onions"
+                        checked={values.onions}
+                        onChange={onChange}
+                    />{' '} 
+                Onions
+                </Label>
+            </Container>
         </FormGroup>
-        <FormGroup>
+        <FormGroup className="specReqBox">
             <Label for="specialRequests">Special Requests?</Label>
             <Input 
                 type="textarea" 
@@ -120,7 +130,7 @@ export default function PizzaForm(props) {
             Thanks for choosing us! We hope you enjoy your experience and to see you again!
             </FormText>
 
-        <Button>Place your order!</Button>
+        <Button className="submitButton">Place your order!</Button>
         <div className='errors'>
                 <div>{errors.telNum}</div>
                 <div>{errors.email}</div>

@@ -13,9 +13,46 @@ code {
 }
 
 .home-section {
-  border: 5px solid black;
+  border: 3px solid #353536;
+  box-shadow: 15px 10px #888888;
+  margin-top: 24px;
 }
 
 .home-section h1 {
   text-align: center;
+}
+
+.caption-text {
+  border: 1px solid white;
+  border-radius: 2px;
+  background-color: black;
+  opacity: 0.9;
+}
+
+.form-container h3 {
+  text-align: center;
+}
+
+.form-container {
+  margin-top: 24px;
+  color: #353536;
+}
+
+.form {
+  margin-top: 24px;
+  border-top: 1px solid lightgrey;
+  padding-top: 24px;
+}
+
+.topping-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.submitButton {
+  margin: 16px 0;
+}
+
+.specReqBox {
+  margin-top: 8px;
 }
